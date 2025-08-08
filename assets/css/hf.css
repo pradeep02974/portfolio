@@ -237,7 +237,7 @@ body {
         }
         .newsletter-button:hover {
             background: var(--primary-light);
-            /* transform: translateY(-1px); */
+            transform: translateY(-1px);
         }
         .footer-links {
             grid-column: span 5;
