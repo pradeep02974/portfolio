@@ -1,0 +1,146 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+    }
+    .quick-btn:hover {
+      background: #0056b3;
+    }
+
+    .modal-overlay {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .connect-container {
+      background: #fff;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .connect-image {
+      flex: 1 1 300px;
+      min-height: 300px;
+      background: url('/images/alert\ contacts.jpg') center/cover no-repeat;
+    }
+
+    .connect-form {
+      flex: 1 1 300px;
+      padding: 30px;
+    }
+
+    .connect-form h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 22px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    .form-group.half {
+      flex: 1 1 45%;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: #28a745;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 51px;
+    }
+
+    .submit-btn:hover {
+      background: #218838;
+    }
+
+    .success-message {
+      margin-top: 15px;
+      color: #28a745;
+      font-weight: bold;
+      display: none;
+      font-size: 16px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 28px;
+      color: #333;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .form-result {
+      margin: 30px auto;
+      padding: 20px;
+      background: #e9f7ef;
+      border-left: 5px solid #28a745;
+      max-width: 700px;
+      display: none;
+      border-radius: 5px;
+    }
+
+    .form-result h3 {
+      margin-bottom: 10px;
+      color: #155724;
+    }
+
+    .form-result p {
+      margin: 5px 0;
+      color: #155724;
+    }
+
+    @media (max-width: 768px) {
+      .connect-container {
+        flex-direction: column;
+      }
+      .connect-image {
+        height: 200px;
+      }
+    }
