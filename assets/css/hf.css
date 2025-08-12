@@ -29,9 +29,9 @@
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: bold;
-      color: var(--primary);
+      color: #9eeaf9;
       flex: 1;
       margin-left: 5%;
     }
@@ -54,7 +54,8 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #fff;
+      color: #9eeaf9;
+    
       font-weight: 500;
       transition: 0.3s;
     }
@@ -84,7 +85,7 @@
     .hire-btn {
       padding: 0.4rem 1rem;
       background: var(--primary);
-      color: #fff;
+      color: #9eeaf9;
       border: none;
       border-radius: 8px;
       font-weight: bold;
