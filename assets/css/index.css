@@ -1,3 +1,4 @@
+
 .hero-section {
   background: linear-gradient(135deg, #1e3a8a, #6b21a8);
   color: #fff;
@@ -91,6 +92,7 @@
   width: 300px;
   border-radius: 1000px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 50px;
 }
 
 @media (max-width: 768px) {

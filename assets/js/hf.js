@@ -2,6 +2,7 @@
     const nav = document.getElementById('nav');
     nav.classList.toggle('show');
   }
+  
 
 /// hire me btn
 (function () {
@@ -97,7 +98,7 @@
       console.error('scroll-top: #scrollTopBtn not found in DOM');
       return;
     }
-    console.log('scroll-top initialized');
+    // console.log('scroll-top initialized');
 
     // Determine the element we should scroll (works for normal pages and many SPA setups)
     const scrollEl = document.scrollingElement || document.documentElement || document.body;
@@ -127,3 +128,4 @@
     });
   });
 })();
+
