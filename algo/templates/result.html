@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        pre { background: #f8f8f8; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .download-btn { padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer; text-decoration: none; }
+        .download-btn:hover { background: #218838; }
+        .back-btn { padding: 10px 20px; background: #6c757d; color: white; border: none; cursor: pointer; text-decoration: none; }
+        .back-btn:hover { background: #5a6268; }
+    </style>
+</head>
+<body>
+    <h1>Processing Results</h1>
+    <p>Total Matching Rows Found: {{ matches_count }}</p>
+    <pre>{{ table }}</pre>
+    {% if download_file %}
+        <a href="/download/{{ download_file }}" class="download-btn">Download Results</a>
+    {% endif %}
+    <a href="/" class="back-btn">Upload Another File</a>
+    
+</body>
+</html>
