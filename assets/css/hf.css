@@ -410,4 +410,79 @@ body {
   opacity: 1 !important;
 }
 /* responsives */
+/**social media icon left side*/
+ .quick-contact-buttons {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999;
+}
 
+.quick-contact-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;
+}
+
+.quick-contact-buttons a:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+.quick-call-btn {
+  background-color: #28a745;
+}
+
+.quick-map-btn {
+  background-color: #007bff;
+}
+
+.quick-whatsapp-btn {
+  background-color: #25d366;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quick-contact-buttons {
+    left: 10px;
+    bottom: 10px;
+    gap: 12px;
+  }
+
+  .quick-contact-buttons a {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-contact-buttons {
+    left: 10px;
+    bottom: 10px;
+    gap: 10px;
+  }
+
+  .quick-contact-buttons a {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+}
+.quick-contact-buttons i {
+  color: white !important;
+  font-weight: 900;
+}
