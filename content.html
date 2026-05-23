@@ -175,17 +175,40 @@ function createCard(number, text=""){
     </div>
     <div class="btn-group">
       <button class="copy-btn" onclick="copyContent(this)">Copy</button>
-      <button class="add-btn" onclick="addContent(this)">Add</button>
+      <button class="add-btn" onclick="duplicateCard(this)">Add</button>
       <button class="delete-btn" onclick="deleteCard(this)">Delete</button>
     </div>
   `;
   cardContainer.appendChild(card);
 }
 
-/* ADD CARD */
+/* ADD CARD (from top bar) */
 function addCard(){
   const total = document.querySelectorAll(".card").length + 1;
   createCard(total);
+  updateTotal();
+  saveCards();
+}
+
+/* DUPLICATE CARD (from inside card) */
+function duplicateCard(btn){
+  const card = btn.closest(".card");
+  const text = card.querySelector("textarea").value;
+  const total = document.querySelectorAll(".card").length + 1;
+  const newCard = document.createElement("div");
+  newCard.className = "card";
+  newCard.innerHTML = `
+    <div>
+      <h3>Card ${total}</h3>
+      <textarea placeholder="Write content here..." oninput="saveCards()">${text}</textarea>
+    </div>
+    <div class="btn-group">
+      <button class="copy-btn" onclick="copyContent(this)">Copy</button>
+      <button class="add-btn" onclick="duplicateCard(this)">Add</button>
+      <button class="delete-btn" onclick="deleteCard(this)">Delete</button>
+    </div>
+  `;
+  card.after(newCard);
   updateTotal();
   saveCards();
 }
@@ -196,14 +219,6 @@ function copyContent(btn){
   const text = card.querySelector("textarea").value;
   navigator.clipboard.writeText(text);
   showToast("Content Copied!");
-}
-
-/* ADD CONTENT */
-function addContent(btn){
-  const card = btn.closest(".card");
-  const textarea = card.querySelector("textarea");
-  textarea.value += "\nNew Content Added!";
-  saveCards();
 }
 
 /* DELETE CARD */
