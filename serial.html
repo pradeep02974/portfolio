@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Premium Scene Counter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed,#0ea5e9);
+    overflow:hidden;
+}
+body::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    top:-150px;
+    right:-120px;
+    filter:blur(10px);
+}
+body::after{
+    content:'';
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    bottom:-120px;
+    left:-80px;
+    filter:blur(10px);
+}
+.card{
+    position:relative;
+    width:min(92%,480px);
+    padding:28px;
+    border-radius:26px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 25px 60px rgba(0,0,0,.28);
+    color:#fff;
+}
+.badge{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.16);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+.scene{
+    text-align:center;
+    margin:22px 0;
+}
+.scene h1{
+    font-size:48px;
+    font-weight:700;
+    line-height:1;
+    text-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+.scene p{
+    opacity:.9;
+    margin-top:10px;
+    font-size:15px;
+}
+.controls{
+    display:flex;
+    gap:12px;
+    margin-top:24px;
+}
+button{
+    border:none;
+    cursor:pointer;
+    transition:.25s ease;
+    font-family:inherit;
+    font-weight:600;
+}
+.copy{
+    flex:1;
+    height:52px;
+    border-radius:16px;
+    color:#fff;
+    font-size:15px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    box-shadow:0 12px 28px rgba(37,99,235,.35);
+}
+.copy:hover{transform:translateY(-2px) scale(1.02)}
+.icon-btn{
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    color:#fff;
+    font-size:26px;
+}
+.plus{
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+    box-shadow:0 12px 24px rgba(34,197,94,.35);
+}
+.minus{
+    background:linear-gradient(135deg,#f59e0b,#ea580c);
+    box-shadow:0 12px 24px rgba(245,158,11,.35);
+}
+.icon-btn:hover{
+    transform:translateY(-3px) rotate(-3deg);
+}
+.counter{
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    transition:.3s;
+}
+.dot.active{
+    width:26px;
+    border-radius:20px;
+    background:#fff;
+}
+.toast{
+    position:absolute;
+    left:50%;
+    bottom:-70px;
+    transform:translateX(-50%);
+    background:#111827;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:14px;
+    font-size:14px;
+    opacity:0;
+    transition:.35s;
+}
+.toast.show{
+    bottom:-15px;
+    opacity:1;
+}
+@media(max-width:480px){
+    .card{padding:22px}
+    .scene h1{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <span class="badge">Scene Counter</span>
+
+    <div class="scene">
+        <h1 id="sceneText">Scene 1</h1>
+        <p>Professional Production Counter</p>
+    </div>
+
+    <div class="controls">
+        <button class="copy" onclick="copyScene()">📋 Copy</button>
+        <button class="icon-btn plus" onclick="changeScene(1)">+</button>
+        <button class="icon-btn minus" onclick="changeScene(-1)">−</button>
+    </div>
+
+    <div class="counter">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="toast" id="toast">Copied: Scene 1</div>
+
+</div>
+
+<script>
+let scene=1;
+
+const title=document.getElementById("sceneText");
+const toast=document.getElementById("toast");
+const dots=document.querySelectorAll(".dot");
+
+function render(){
+    title.textContent=`Scene ${scene}`;
+
+    dots.forEach(d=>d.classList.remove("active"));
+    dots[(scene-1)%3].classList.add("active");
+}
+
+function changeScene(step){
+    scene=Math.max(1,scene+step);
+    render();
+}
+
+function copyScene(){
+    navigator.clipboard.writeText(`Scene ${scene}`);
+    toast.textContent=`✓ Copied: Scene ${scene}`;
+    toast.classList.add("show");
+    setTimeout(()=>toast.classList.remove("show"),1800);
+}
+
+render();
+</script>
+
+</body>
+</html>
